@@ -3,10 +3,15 @@ package com.codegym.models;
 public class Price {
     private Float price;
     private TypePrice typePrice;
+    private Unit unit;
 
-    public Price(Float price, TypePrice typePrice) {
+    public Price() {
+    }
+
+    public Price(Float price, TypePrice typePrice, Unit unit) {
         this.price = price;
         this.typePrice = typePrice;
+        this.unit = unit;
     }
 
     public Float getPrice() {
@@ -25,5 +30,11 @@ public class Price {
         this.typePrice = typePrice;
     }
 
+    public Unit getUnit() {
+        return unit;
+    }
 
+    public void setUnit(Unit unit) {
+        this.unit = unit;
+    }
 }
