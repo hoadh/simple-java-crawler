@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Scanner;
 
-public class URLGet implements IHttpService {
+public class URLGetRequest implements IHttpService {
     @Override
     public String get(String link) {
         String content = "";

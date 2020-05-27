@@ -2,14 +2,15 @@ package com.codegym;
 
 import com.codegym.crawler.Crawler;
 import com.codegym.crawler.impl.BatdongsanCrawler;
-import com.codegym.crawler.utils.URLGet;
+import com.codegym.crawler.utils.IHttpService;
+import com.codegym.crawler.utils.URLGetRequest;
 
 public class MySimpleCrawler {
 
     public static void main(String[] args) throws Exception {
-        URLGet urlGet = new URLGet();
+        IHttpService urlGetRequest = new URLGetRequest();
         Crawler[] crawlers = new Crawler[2];
-        crawlers[0] = new BatdongsanCrawler(urlGet);
+        crawlers[0] = new BatdongsanCrawler(urlGetRequest);
 
         for (Crawler crawler: crawlers) {
             crawler.inspect();
