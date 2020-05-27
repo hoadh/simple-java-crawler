@@ -56,4 +56,15 @@ public class ClassifiedAd {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "ClassifiedAd{" +
+                "title='" + title + '\'' +
+                ", typeAd=" + typeAd +
+                ", price=" + price +
+                ", acreage=" + acreage +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
