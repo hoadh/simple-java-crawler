@@ -19,15 +19,15 @@ public abstract class Crawler {
      */
     public Iterable<ClassifiedAd> inspect() throws Exception {
         List<ClassifiedAd> classifiedAds = new ArrayList<>();
-        Iterable<String> subpages = inspectHomepage();
+        Iterable<String> categories = inspectHomepage();
 
-        for (String subpage: subpages) {
-            System.out.println("SubPages: " + subpage);
-            Iterable<String> detailPages = inspectSubpage(subpage);
+        for (String category: categories) {
+            System.out.println("Category: " + category);
+            Iterable<String> classifiedAdLinks = inspectCategory(category);
 
-            for (String detailPage: detailPages) {
-                System.out.println("Detail page: " + detailPage);
-                ClassifiedAd classifiedAd = inspectDetailPage(detailPage);
+            for (String classifiedAdLink: classifiedAdLinks) {
+                System.out.println("Detail page: " + classifiedAdLink);
+                ClassifiedAd classifiedAd = inspectClassifiedAdPage(classifiedAdLink);
                 System.out.println(classifiedAd);
                 classifiedAds.add(classifiedAd);
             }
@@ -37,6 +37,6 @@ public abstract class Crawler {
     }
 
     protected abstract Iterable<String> inspectHomepage();                    // bước 1
-    protected abstract Iterable<String> inspectSubpage(String subpage);       // bước 2
-    protected abstract ClassifiedAd inspectDetailPage(String detailPage) throws Exception;     // bước 3
+    protected abstract Iterable<String> inspectCategory(String category);       // bước 2
+    protected abstract ClassifiedAd inspectClassifiedAdPage(String classifiedAd) throws Exception;     // bước 3
 }

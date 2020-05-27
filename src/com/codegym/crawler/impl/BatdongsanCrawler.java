@@ -58,9 +58,9 @@ public class BatdongsanCrawler extends Crawler {
     }
 
     @Override
-    protected Iterable<String> inspectSubpage(String subpage) {
-        String content = this.httpService.get(subpage);
-        System.out.println("inspectSubpage " + subpage);
+    protected Iterable<String> inspectCategory(String category) {
+        String content = this.httpService.get(category);
+        System.out.println("inspectCategory " + category);
         List<String> links = new ArrayList<>();
         Pattern p = Pattern.compile(PATTERN_CLASSIFIED_AD_LINKS_IN_SUB_CATEGORY_PAGE);
         Matcher m = p.matcher(content);
@@ -71,8 +71,8 @@ public class BatdongsanCrawler extends Crawler {
         return links;
     }
     @Override
-    protected ClassifiedAd inspectDetailPage(String detailPage) throws Exception {
-        String content = this.httpService.get(detailPage);
+    protected ClassifiedAd inspectClassifiedAdPage(String classifiedAd) throws Exception {
+        String content = this.httpService.get(classifiedAd);
 
         Pattern pTitle = Pattern.compile(PATTERN_CLASSIFIED_TITLE + ".*" + PATTERN_CLASSIFIED_PRICE);
         Matcher m = pTitle.matcher(content);
